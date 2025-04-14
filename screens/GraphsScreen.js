@@ -17,7 +17,7 @@ export default function GraphsScreen(){
             <LineChartCard title = "Flow Rate" data = {recordedData.flowRate} units = "L/min"/>
             <LineChartCard title = "Rain Drop" data = {recordedData.rainDrop} units = "mm"/>
             <LineChartCard title = "Water Level" data = {recordedData.waterLevel} units = "cm"/>
-            <LineChartCard title = "Accelerometer" data = {{ax: recordedData.ax, ay:recordedData.ay, az:recordedData.az}} units = "m/s2"/>
+            <LineChartCard title = "Accelerometer" data = {recordedData.accelerometer} units = "m/s2"/>
         </ScrollView>
     )
 }

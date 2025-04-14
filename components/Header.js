@@ -15,7 +15,7 @@ export default function Header(){
 const styles = StyleSheet.create({
     header: {
         width: "100%",
-        backgroundColor: "#007bff",
+        backgroundColor: "#003366",
         paddingVertical: 15,
         paddingHorizontal: 20,
         alignItems: "center",
@@ -25,8 +25,15 @@ const styles = StyleSheet.create({
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)"
       },
     headerText: {
-        fontSize: 22,
-        fontWeight: "bold",
-        color: "#fff",
+        fontFamily: 'Roberto', 
+        fontSize: 40, // Large size for impact
+        fontWeight: '900', // Extra bold
+        color: '#fff', // White text for contrast
+        textTransform: 'uppercase', // Makes it all caps
+        letterSpacing: 2, // Adds spacing for a cool look
+        textAlign: 'center', // Centers text
+        textShadowColor: 'rgba(0, 0, 0, 0.9)', // Dark shadow
+        textShadowOffset: { width: 4, height: 4 }, // Offset to create depth
+        textShadowRadius: 6, // Blurred edges for glow effect
       }
 })

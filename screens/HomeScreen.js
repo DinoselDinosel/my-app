@@ -2,7 +2,7 @@
 
 
 import { useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Dashboard from "../components/Dashboard.js"
 import Header from "../components/Header.js";
 
@@ -19,6 +19,6 @@ export default function HomeScreen(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4", // Light Gray Background
+    backgroundColor: "#E3F2FD", // Light Gray Background
   },
 });

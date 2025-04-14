@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.devol_one.myapp"
+      "package": "com.devol_one.myapp",
+      "googleServicesFile": "google-services (1).json"
     },
     "web": {
       "favicon": "./assets/favicon.png"

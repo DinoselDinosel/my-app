@@ -2,42 +2,43 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function SensorCard(props){
+  let value = props.value;
+  console.log(props.title)
+  console.log(value)
+  if (value != "N/A"){
+    if (props.ultrasonicDistance ?? false){ // if ultrasonicDistance exist, change value
+      value = props.ultrasonicDistance - value;
+    }
+  }
+
+
   // Determine background color based on threshold
   function getBackgroundColor(value, threshold) {
-    if (typeof value === "object") { // lets not deal with accelerometer
-      return "#4caf50"; // Green (Normal)
-    }
-    if (isNaN(parseFloat(value))){ // If this is soil Moisture component
+    if (isNaN(parseFloat(value)) && value != "N/A"){ // If this is soil Moisture component
+      console.log(value)
+      console.log(isNaN(parseFloat(value)))
       if (value.toLowerCase() === "wet"){ 
-        return "#ff4c4c"; // Red (High Alert)
+        return "#D30000"; // Red (High Alert)
       }
       else { // if dry
-        return "#4caf50"; // Green (Normal)
+        return "#228B22"; // Green (Normal)
       }
     }
-    
+
     else{ // The rest of the components
       if (value >= threshold){
-          return "#ff4c4c"; // Red (High Alert)
+          return "#D30000"; // Red (High Alert)
       }
       else{
-        return "#4caf50"; // Green (Normal)
+        return "#228B22"; // Green (Normal)
       }
     } 
   };
-  function renderBool(){
-      if (typeof props.value === "object") {
-          return `X: ${props.value.x}, Y: ${props.value.y}, Z: ${props.value.z}`;
-        }
-      else{
-          return props.value
-      }
-  }
 // getBackgroundColor()
   return (
-    <View style={[styles.card, { backgroundColor: getBackgroundColor(props.value, props.threshold)}]}>
+    <View style={[styles.card, { backgroundColor: getBackgroundColor(value, props.threshold)}]}>
       <Text style={styles.title}>{props.title}</Text>
-      <Text style={styles.value}>{renderBool()}{props.unit}</Text>
+      <Text style={styles.value}>{`${value}${props.unit}`}</Text>
     </View>
   );
 };
@@ -58,11 +59,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         color: "#fff",
+        fontFamily: "Courier New"
+
     },
     value: {
         fontSize: 22,
         fontWeight: "bold",
         color: "#fff",
         marginTop: 5,
+        fontFamily: 'Courier New'
     },
 });
